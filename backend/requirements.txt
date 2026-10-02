@@ -1,5 +1,5 @@
 fastapi==0.141.1
-uvicorn
+uvicorn==0.35.0
 pandas
 numpy
 scikit-learn==1.6.1
