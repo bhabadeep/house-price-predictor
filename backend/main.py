@@ -18,7 +18,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://house-price-predictor.onrender.com"
+        "https://house-price-predictor-bhaba.onrender.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],
