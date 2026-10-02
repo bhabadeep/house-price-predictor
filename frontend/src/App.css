@@ -1,0 +1,796 @@
+/* =========================================
+   SWISS MINIMALIST HOUSE PRICE PREDICTOR
+   ========================================= */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+
+/* =========================================
+   PAGE
+   ========================================= */
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 0 32px 70px;
+
+  background: #f4f4f2;
+}
+
+.top-line {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background: #e30613;
+
+  z-index: 100;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+
+   Everything uses the same 1100px grid.
+   ========================================= */
+
+.container {
+  width: min(1100px, 100%);
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+  padding-top: 78px;
+  padding-bottom: 70px;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 45px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+
+  color: #555;
+}
+
+.hero-number {
+  color: #e30613;
+}
+
+
+/* =========================================
+   HERO GRID
+
+   70% title
+   30% description
+   ========================================= */
+
+.hero-content {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    300px;
+
+  gap: 70px;
+
+  align-items: end;
+}
+
+
+/* =========================================
+   HERO TITLE
+   ========================================= */
+
+.hero h1 {
+  margin: 0;
+
+  max-width: 760px;
+
+  font-size: clamp(58px, 7.2vw, 100px);
+
+  line-height: 0.88;
+
+  font-weight: 700;
+
+  letter-spacing: -5px;
+
+  text-align: left;
+
+  color: #111;
+}
+
+.red-dot {
+  color: #e30613;
+}
+
+
+/* =========================================
+   HERO DESCRIPTION
+   ========================================= */
+
+.hero-description {
+  width: 100%;
+
+  padding-bottom: 5px;
+}
+
+.hero-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 23px;
+
+  background: #111;
+
+  color: #fff;
+}
+
+.hero-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.hero-description p {
+  margin: 0 0 24px;
+
+  font-size: 15px;
+  line-height: 1.6;
+
+  color: #555;
+}
+
+.hero-rule {
+  width: 100%;
+  height: 1px;
+
+  margin-bottom: 13px;
+
+  background: #111;
+}
+
+.hero-description > span {
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.6px;
+
+  color: #777;
+}
+
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.house-form {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+
+/* =========================================
+   FORM SECTION
+   ========================================= */
+
+.form-section {
+  width: 100%;
+
+  padding: 38px 16px 48px;
+
+  background: #fff;
+
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.form-section + .form-section {
+  border-top: none;
+}
+
+
+/* =========================================
+   SECTION HEADER
+
+   Icon + title share one baseline structure.
+   ========================================= */
+
+.section-heading {
+  display: grid;
+
+  grid-template-columns: 48px 1fr;
+
+  column-gap: 18px;
+
+  align-items: center;
+
+  margin-bottom: 36px;
+}
+.section-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #111;
+
+  color: #111;
+}
+
+.section-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.section-number {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  color: #e30613;
+}
+
+.form-section h2 {
+  margin: 0;
+
+  font-size: 21px;
+  line-height: 1.1;
+
+  font-weight: 700;
+
+  letter-spacing: -0.4px;
+
+  text-align: left;
+
+  color: #111;
+}
+
+
+/* =========================================
+   FORM GRID
+
+   Exact equal columns.
+   ========================================= */
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  column-gap: 60px;
+
+  row-gap: 28px;
+
+  width: 100%;
+}
+
+
+/* =========================================
+   FORM GROUP
+   ========================================= */
+
+.form-group {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: stretch;
+}
+
+.form-group label {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: baseline;
+
+  width: 100%;
+
+  margin-bottom: 9px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  color: #222;
+}
+
+.form-group label span {
+  margin-left: 10px;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: #888;
+}
+
+
+/* =========================================
+   INPUTS
+   ========================================= */
+
+.form-group input,
+.form-group select {
+  display: block;
+
+  width: 100%;
+  height: 48px;
+
+  padding: 0 13px;
+
+  border: 1px solid #aaa;
+  border-radius: 0;
+
+  outline: none;
+
+  background: #fff;
+
+  color: #111;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+.form-group input:hover,
+.form-group select:hover {
+  border-color: #555;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #e30613;
+
+  box-shadow:
+    inset 4px 0 0 #e30613;
+}
+
+
+/* =========================================
+   NUMBER INPUT
+   ========================================= */
+
+.form-group input[type="number"] {
+  appearance: textfield;
+}
+
+.form-group input[type="number"]::-webkit-inner-spin-button,
+.form-group input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+
+/* =========================================
+   ACTION AREA
+   ========================================= */
+
+.action-area {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding: 34px 0;
+
+  border-bottom: 1px solid #111;
+}
+
+.action-info {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  font-size: 12px;
+
+  color: #666;
+}
+
+.action-info svg {
+  width: 18px;
+  height: 18px;
+
+  color: #111;
+}
+
+
+/* =========================================
+   BUTTON
+   ========================================= */
+
+.predict-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  width: 215px;
+  height: 50px;
+
+  padding: 0 20px;
+
+  border: 1px solid #111;
+  border-radius: 0;
+
+  background: #111;
+
+  color: #fff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.4px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.predict-button svg {
+  width: 18px;
+  height: 18px;
+
+  transition: transform 0.15s ease;
+}
+
+.predict-button:hover {
+  background: #e30613;
+
+  border-color: #e30613;
+}
+
+.predict-button:hover svg {
+  transform: translateX(3px);
+}
+
+.predict-button:disabled {
+  background: #888;
+
+  border-color: #888;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   LOADING
+   ========================================= */
+
+.loading-dot {
+  width: 8px;
+  height: 8px;
+
+  border: 2px solid rgba(255, 255, 255, 0.4);
+
+  border-top-color: #fff;
+
+  border-radius: 50%;
+
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================
+   ERROR
+   ========================================= */
+
+.error-message {
+  width: 100%;
+
+  margin-top: 24px;
+
+  padding: 15px 18px;
+
+  border-left: 4px solid #e30613;
+
+  background: #fff;
+
+  color: #333;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   PREDICTION RESULT
+   ========================================= */
+
+.prediction-result {
+  width: 100%;
+
+  margin-top: 52px;
+
+  padding: 38px 0 44px;
+
+  border-top: 5px solid #e30613;
+
+  border-bottom: 1px solid #111;
+
+  background: transparent;
+
+  text-align: left;
+}
+
+.prediction-top {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  margin-bottom: 28px;
+}
+
+.prediction-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #111;
+
+  color: #fff;
+}
+
+.prediction-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.prediction-top > span {
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.6px;
+
+  color: #777;
+}
+
+.prediction-result h2 {
+  margin: 0 0 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-align: left;
+
+  color: #555;
+}
+
+.prediction-price {
+  font-size: clamp(50px, 6.5vw, 80px);
+
+  line-height: 0.95;
+
+  font-weight: 700;
+
+  letter-spacing: -4px;
+
+  color: #111;
+}
+
+.prediction-note {
+  margin: 20px 0 0;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+  color: #777;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding-top: 24px;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  color: #999;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 850px) {
+
+  .app {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .hero-description {
+    max-width: 420px;
+  }
+
+  .form-grid {
+    column-gap: 35px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 650px) {
+
+  .app {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .hero {
+    padding-top: 60px;
+    padding-bottom: 55px;
+  }
+
+  .hero-meta {
+    margin-bottom: 32px;
+  }
+
+  .hero h1 {
+    font-size: 56px;
+
+    letter-spacing: -3px;
+  }
+
+  .form-section {
+    padding: 32px 0 38px;
+  }
+
+  .section-heading {
+    grid-template-columns: 42px 1fr;
+
+    column-gap: 14px;
+
+    margin-bottom: 30px;
+  }
+
+  .section-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+
+    row-gap: 23px;
+  }
+
+  .action-area {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 20px;
+  }
+
+  .predict-button {
+    width: 100%;
+  }
+
+  .prediction-price {
+    letter-spacing: -2.5px;
+  }
+
+  .footer {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 420px) {
+
+  .hero h1 {
+    font-size: 46px;
+
+    letter-spacing: -2.5px;
+  }
+
+  .hero-description p {
+    font-size: 14px;
+  }
+
+  .form-section h2 {
+    font-size: 19px;
+  }
+
+  .prediction-price {
+    font-size: 45px;
+  }
+}
